@@ -26,16 +26,16 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(64) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
-  `salt` varchar(64) DEFAULT NULL,
-  `password` varchar(64) DEFAULT NULL,
+  `salt` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL,
   `currency_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
-  KEY `fk_currency_id_idx` (`currency_id`),
-  CONSTRAINT `fk_currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`currency_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  KEY `fk_user_currency_id_idx` (`currency_id`),
+  CONSTRAINT `fk_user_currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`currency_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,6 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'achsuthan@gmail.com','Achsuthan','some salt','some password','2022-03-12 00:00:01','2022-03-12 00:00:01',1),(2,'aung@gmail.com','Aung Kyaw Thant','some salt for aung','some password for aung','2022-03-12 00:00:01','2022-03-12 00:00:01',1),(3,'yuyu@gmail.com','Yu Yu Lwin','some salt for Yu Yu','some password for yu yu','2022-03-12 00:00:01','2022-03-12 00:00:01',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-12 19:25:06
+-- Dump completed on 2022-03-12 19:38:45
