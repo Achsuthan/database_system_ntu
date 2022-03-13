@@ -13,6 +13,7 @@ Example folder structure of this repo
 │   └── create.sql (create table script file)
 │   └── insert.sql (Adding value to user table script file)
 │   └── workbenchExport.sql (The exported file from workbench for this table)
+│ 
 └── Scripts
 │   └── scriptOne.sql (script file which is align with our feature)
 │   └── scriptTwo.sql (script file which is align with our feature)
