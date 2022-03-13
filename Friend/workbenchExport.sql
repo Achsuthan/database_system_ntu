@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `friend`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `friend` (
   `friend_id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `is_Friends` tinyint(4) DEFAULT NULL,
   `sender_userId` int(11) DEFAULT NULL,
   `receiver_userId` int(11) DEFAULT NULL,
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-13  8:16:55
+-- Dump completed on 2022-03-13 13:46:30

@@ -26,14 +26,14 @@ CREATE TABLE `category` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `image` varchar(64) NOT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `colour` varchar(64) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`category_id`),
   KEY `fk_category_created_by_idx` (`created_by`),
   CONSTRAINT `fk_category_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (2,'Food','mdi-food','2022-03-13 00:00:01','2022-03-13 00:00:01','#34568B',NULL),(3,'Loan','mdi-home-city-outline','2022-03-13 00:00:01','2022-03-13 00:00:01','#5B5EA6',NULL),(4,'Gifts','mdi-gift-open','2022-03-13 00:00:01','2022-03-13 00:00:01','#DFCFBE',NULL),(5,'Dress','mdi-hanger','2022-03-13 00:00:01','2022-03-13 00:00:01','#7FCDCD',NULL),(6,'Drink','mdi-glass-cocktail','2022-03-13 00:00:01','2022-03-13 00:00:01','#FF6F61',NULL),(7,'Income','mdi-cash','2022-03-13 00:00:01','2022-03-13 00:00:01','#88B04B',NULL),(8,'Expenses','mdi-cash','2022-03-13 00:00:01','2022-03-13 00:00:01','#DD4124',NULL),(9,'Transfer','mdi-bank-transfer','2022-03-13 00:00:01','2022-03-13 00:00:01','#955251',NULL),(10,'Sports','mdi-basketball','2022-03-13 00:00:01','2022-03-13 00:00:01','#B565A7',NULL),(11,'Studies','mdi-school','2022-03-13 00:00:01','2022-03-13 00:00:01','#D65076',NULL),(12,'Cinema','mdi-theater','2022-03-13 00:00:01','2022-03-13 00:00:01','#45B8AC',NULL),(13,'Travel','mdi-train-car','2022-03-13 00:00:01','2022-03-13 00:00:01','#EFC050',NULL);
+INSERT INTO `category` VALUES (2,'Food','mdi-food','2022-03-13 00:00:01','2022-03-13 00:00:01','#34568B',NULL),(3,'Loan','mdi-home-city-outline','2022-03-13 00:00:01','2022-03-13 00:00:01','#5B5EA6',NULL),(4,'Gifts','mdi-gift-open','2022-03-13 00:00:01','2022-03-13 00:00:01','#DFCFBE',NULL),(5,'Dress','mdi-hanger','2022-03-13 00:00:01','2022-03-13 00:00:01','#7FCDCD',NULL),(6,'Drink','mdi-glass-cocktail','2022-03-13 00:00:01','2022-03-13 00:00:01','#FF6F61',NULL),(7,'Income','mdi-cash','2022-03-13 00:00:01','2022-03-13 00:00:01','#88B04B',NULL),(8,'Expenses','mdi-cash','2022-03-13 00:00:01','2022-03-13 00:00:01','#DD4124',NULL),(9,'Transfer','mdi-bank-transfer','2022-03-13 00:00:01','2022-03-13 00:00:01','#955251',NULL),(10,'Sports','mdi-basketball','2022-03-13 00:00:01','2022-03-13 00:00:01','#B565A7',NULL),(11,'Studies','mdi-school','2022-03-13 00:00:01','2022-03-13 00:00:01','#D65076',NULL),(12,'Cinema','mdi-theater','2022-03-13 00:00:01','2022-03-13 00:00:01','#45B8AC',NULL),(13,'Travel','mdi-train-car','2022-03-13 00:00:01','2022-03-13 00:00:01','#EFC050',NULL),(16,'test','test','2022-03-13 05:39:43','2022-03-13 05:39:43',NULL,NULL);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-13  8:09:13
+-- Dump completed on 2022-03-13 13:46:36

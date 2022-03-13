@@ -1,4 +1,3 @@
-
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: ntudbms-1.mysql.database.azure.com    Database: moneymanager
@@ -26,8 +25,8 @@ DROP TABLE IF EXISTS `currency`;
 CREATE TABLE `currency` (
   `currency_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`currency_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +37,7 @@ CREATE TABLE `currency` (
 
 LOCK TABLES `currency` WRITE;
 /*!40000 ALTER TABLE `currency` DISABLE KEYS */;
-INSERT INTO `currency` VALUES (1,'sgd','2022-03-12 00:00:01','2022-03-12 00:00:01'),(2,'usd','2022-03-12 00:00:01','2022-03-12 00:00:01'),(3,'lkr','2022-03-12 00:00:01','2022-03-12 00:00:01'),(4,'mmk','2022-03-12 00:00:01',NULL);
+INSERT INTO `currency` VALUES (1,'sgd','2022-03-12 00:00:01','2022-03-12 00:00:01'),(2,'usd','2022-03-12 00:00:01','2022-03-12 00:00:01'),(3,'lkr','2022-03-12 00:00:01','2022-03-12 00:00:01'),(4,'mmk','2022-03-12 00:00:01','2022-03-12 00:00:01');
 /*!40000 ALTER TABLE `currency` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-12 19:06:11
+-- Dump completed on 2022-03-13 13:46:48

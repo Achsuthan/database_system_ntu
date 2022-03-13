@@ -1,8 +1,7 @@
--- Create friend table query
 CREATE TABLE `friend` (
   `friend_id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `is_Friends` tinyint(4) DEFAULT NULL,
   `sender_userId` int(11) DEFAULT NULL,
   `receiver_userId` int(11) DEFAULT NULL,

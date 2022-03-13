@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `transaction_spent_for`;
 CREATE TABLE `transaction_spent_for` (
   `transaction_spent_for_id` int(11) NOT NULL AUTO_INCREMENT,
   `for` varchar(64) DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`transaction_spent_for_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-13  8:22:23
+-- Dump completed on 2022-03-13 13:47:00
