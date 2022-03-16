@@ -28,15 +28,15 @@ CREATE TABLE `bank_transaction` (
   `amount` double DEFAULT '0',
   `currency` varchar(64) NOT NULL,
   `description` varchar(100) NOT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
-  `transaction_type_id` int(11) DEFAULT NULL,
-  `bank_id` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `transaction_type_id` int(11) NOT NULL,
+  `bank_id` int(11) NOT NULL,
   PRIMARY KEY (`bank_transaction_id`),
   KEY `fk_bank_transaction_transaction_type_id_idx` (`transaction_type_id`),
   KEY `fk_bank_transaction_bank_id_idx` (`bank_id`),
-  CONSTRAINT `fk_bank_transaction_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `bank` (`bank_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_bank_transaction_transaction_type_id` FOREIGN KEY (`transaction_type_id`) REFERENCES `transaction_type` (`transaction_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_bank_transaction_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `bank` (`bank_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_bank_transaction_transaction_type_id` FOREIGN KEY (`transaction_type_id`) REFERENCES `transaction_type` (`transaction_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-13 23:59:52
+-- Dump completed on 2022-03-15 22:57:52
