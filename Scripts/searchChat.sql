@@ -1,7 +1,7 @@
 /*
-    Intro: This SQL query is used to get chat with message details.
+    Intro: This SQL query is used to get chat with chat details.
     Assumption: Frontend already displyed the transacation list and when user try to get the chat details of a specific transaction, this script will be used
-    DataRepresentation: The backend script will provide the table with message details, 
+    DataRepresentation: The backend script will provide the table with chat details, 
         chat Id
         messge 
         sender User Id
