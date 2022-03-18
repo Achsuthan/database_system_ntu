@@ -16,29 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `access_level`
+-- Table structure for table `bank`
 --
 
-DROP TABLE IF EXISTS `access_level`;
+DROP TABLE IF EXISTS `bank`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `access_level` (
-  `access_level_id` int(11) NOT NULL AUTO_INCREMENT,
-  `level` varchar(64) NOT NULL,
+CREATE TABLE `bank` (
+  `bank_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`access_level_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `owner_id` int(11) NOT NULL,
+  PRIMARY KEY (`bank_id`),
+  KEY `fk_bank_owner_id_idx` (`owner_id`),
+  CONSTRAINT `fk_bank_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `access_level`
+-- Dumping data for table `bank`
 --
 
-LOCK TABLES `access_level` WRITE;
-/*!40000 ALTER TABLE `access_level` DISABLE KEYS */;
-INSERT INTO `access_level` VALUES (1,'Admin','2022-03-13 00:00:01','2022-03-13 00:00:01'),(2,'Editor','2022-03-13 00:00:01','2022-03-13 00:00:01'),(3,'Viewer','2022-03-13 00:00:01','2022-03-13 00:00:01');
-/*!40000 ALTER TABLE `access_level` ENABLE KEYS */;
+LOCK TABLES `bank` WRITE;
+/*!40000 ALTER TABLE `bank` DISABLE KEYS */;
+INSERT INTO `bank` VALUES (1,'DBS','2022-03-13 00:00:01','2022-03-13 00:00:01',3),(2,'POSB','2022-03-13 00:00:01','2022-03-13 00:00:01',1),(3,'UOB','2022-03-13 00:00:01','2022-03-13 00:00:01',2),(4,'OCBC','2022-03-13 00:00:01','2022-03-13 00:00:01',2);
+/*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-15 22:55:02
+-- Dump completed on 2022-03-15 23:02:02
