@@ -9,8 +9,8 @@ CREATE TABLE `user` (
   `currency_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
-  UNIQUE KEY `idx_user_email` (`email`),
+  UNIQUE KEY `idx_user_email` (`email`), -- Indexing
   KEY `fk_user_currency_id_idx` (`currency_id`),
-  KEY `idx_user_name` (`name`),
+  KEY `idx_user_name` (`name`), -- Indexing
   CONSTRAINT `fk_user_currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`currency_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

@@ -16,7 +16,7 @@ CREATE TABLE `transaction` (
   KEY `fk_transaction_created_by_idx` (`created_by`),
   KEY `fk_transaction_transaction_type_id_idx` (`transaction_type_id`),
   KEY `fk_transaction_transaction_spend_for_id_idx` (`transaction_spent_for_id`),
-  KEY `idx_transaction_name` (`name`),
+  KEY `idx_transaction_name` (`name`), --- Indexing
   CONSTRAINT `fk_transaction_category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_transaction_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_transaction_transaction_spend_for_id` FOREIGN KEY (`transaction_spent_for_id`) REFERENCES `transaction_spent_for` (`transaction_spent_for_id`) ON UPDATE CASCADE,
