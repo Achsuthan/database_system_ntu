@@ -13,8 +13,8 @@
 select user.user_id,user.name, user.email 
 from user
 where exists(
-			select friend.friend_id,friend.sender_userId, friend.receiver_userid
-			from friend
-			where (friend.receiver_userId = user.user_id AND friend.is_Friends = false) 
-            AND (friend.sender_userId = user.user_id AND friend.is_Friends = false)
+ select friend.friend_id,friend.sender_userId, friend.receiver_userid
+ from friend
+ where (friend.receiver_userId = user.user_id AND friend.is_Friends = false) 
+ AND (friend.sender_userId = user.user_id AND friend.is_Friends = false)
 );
