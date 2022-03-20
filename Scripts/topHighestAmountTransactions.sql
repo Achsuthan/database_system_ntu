@@ -12,12 +12,9 @@
 */
 
 
---- need to work bit more for the group and shared transaction
+SET @userID = '1';
 
-
-
-SELECT *
+SELECT transaction.transaction_id, transaction.name, transaction.amount
 FROM transaction
-where transaction.userId = 'USR-11111111'
-
-ORDER BY transaction.amount DESC LIMIT 5
+where transaction.created_by = @userID OR transaction.transaction_id in (select shared_transaction.transaction_id from shared_transaction where shared_transaction.receiver_id = @userId )
+ORDER BY transaction.amount DESC LIMIT 5;
