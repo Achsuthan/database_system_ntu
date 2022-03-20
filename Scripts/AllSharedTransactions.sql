@@ -1,5 +1,5 @@
 /*
-    Intro: This SQL query is used to get shared transactions by category and start date and end date filters sorted by latest transaction date.
+    Intro: This SQL query is used to get all shared transactions by sorted by latest transaction first.
     Assumption: Frontend will have the seperate page to getall the shared transaction and display it to user
     DataRepresentation: The backend script will provide the table with transaction details, 
         transaction Id
@@ -22,13 +22,7 @@
         Income -> plus, Expenses -> minus
 */
 
-
-
 SET @userId = 1;
-SET @categoryIds = '1,2,3';
-SET @transactionspendfortype = 2; -- 2 or 3 (friends or group)
-SET @trans_startdate = '2022-03-15 00:00:00';
-SET @trans_enddate = '2022-03-30 23:59:59';
 
 SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount ,transaction.description as transaction_description,
  transaction.amount as transaction_amount, transaction.updateddate as transaction_created_date, transaction.is_bank_transaction as is_bank_transaction,
@@ -39,11 +33,8 @@ FROM transaction
 inner join shared_transaction on transaction.transaction_id = shared_transaction.transaction_id
 inner join category on (transaction.category_id = category.category_id)
 inner join transaction_type on (transaction.transaction_type_id = transaction_type.transaction_type_id)
-where 	((shared_transaction.sender_id = @userId || shared_transaction.receiver_id = @userId) &&
+where ((shared_transaction.sender_id = @userId || shared_transaction.receiver_id = @userId) &&
         (shared_transaction.sender_id <> shared_transaction.receiver_id)) &&
-		FIND_IN_SET (category.category_id ,@categoryIds) &&
-        (transaction.createddate BETWEEN @trans_startdate AND @trans_enddate) && 
-		transaction.transaction_spent_for_id = @transactionspendfortype && -- spend for friend or group transaction
+        transaction.transaction_spent_for_id IN (2,3) && -- friend and group transaction
         transaction_type.transaction_type_id = 3 -- transfer type
-order by transaction.updateddate desc; 
-
+order by transaction.updateddate desc;
