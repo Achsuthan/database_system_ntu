@@ -10,14 +10,12 @@
     These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend
 */
 
+SET @userID = '1';
 
---- need to work bit more for the group and shared transaction
-
-
-select COUNT(transaction.categoryId) as categoryCount, transaction.categoryId, category.categoryName
+select COUNT(transaction.category_id) as categoryCount, transaction.category_id, category.name
 from transaction
-inner join category on (transaction.categoryId = category.categoryId)
-where userId = 'USR-11111111'
-group by categoryId
-order by count(transaction.categoryId) desc
+inner join category on (transaction.category_id = category.category_id)
+where transaction.created_by = @userId OR transaction.transaction_id in (select shared_transaction.transaction_id from shared_transaction where shared_transaction.receiver_id = @userId )
+group by transaction.category_id
+order by count(transaction.category_id) desc
 limit 5;
