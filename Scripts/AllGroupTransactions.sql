@@ -1,6 +1,6 @@
 /*
     Intro: This SQL query is used to get all group transactions by decending order latest transaction.
-    Assumption: Frontend will have the seperate page to getall the shared transaction and display it to user
+    Assumption: Frontend will have the seperate page to get all the group transaction and display it to user
     DataRepresentation: The backend script will provide the table with transaction details, 
         transaction Id
         transaction name 
@@ -18,8 +18,8 @@
         receiver email
         percentage
     <> These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend, 
-    <> For the amount plus/minus values, the backend logic changed the amount value to plus/minus based on the transaction type;
-        Income -> plus, Expenses -> minus
+    <> For the amount plus/minus values, the backend logic changed the amount value to plus/minus based on the transaction for and receiverId;
+        if the transaction for is group and receiverId users get the plus amount and senderId(current user) will get the amount as minus
 */
 
 SET @userId = 1;

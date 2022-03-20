@@ -18,8 +18,8 @@
         receiver email
         percentage
     <> These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend, 
-    <> For the amount plus/minus values, the backend logic changed the amount value to plus/minus based on the transaction type;
-        Income -> plus, Expenses -> minus
+    <> For the amount plus/minus values, the backend logic changed the amount value to plus/minus based on the transaction for and receiverId;
+        receiverId user will get the amount as plus and the senderId(current user) get the minus amount
 */
 
 SET @userId = 1;

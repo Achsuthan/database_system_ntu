@@ -15,7 +15,7 @@
 
 
 SET @keyword = "%gmail%";
-SET @userId = "%gmail%";
+SET @userId = "1";
 
 select user_id, name, email 
 from user 

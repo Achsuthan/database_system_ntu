@@ -1,7 +1,7 @@
 /*
     Intro: This SQL query is used to get the friends list for specific user.
     Assumption: The backend language will give the user Id and then that ID is used to fetch the friends list
-    DataRepresentation: The backend script will provide the table with user and friend details, 
+    DataRepresentation: The backend script will provide the table withfriends details, 
         friend table Id
         User Id
         Receiver/Sender name

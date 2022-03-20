@@ -1,6 +1,8 @@
 /*
-    Intro: This SQL query is used to get the highest amount spent transactions details.
-    Assumption: Backend language will provide the user's ID and these script executed seperatly and get the top most spent transaction
+    Intro: This SQL query is used to get the top 5 highest amount spent transactions details.
+    Assumption: 
+        <> Backend language will provide the user's ID and these script executed seperatly and get the top most spent transactions
+        <> These details will be displyed in the dashboard page
     DataRepresentation: The backend script will provide the table with user and transaction details, 
         Transaction Id
         Transaction Name

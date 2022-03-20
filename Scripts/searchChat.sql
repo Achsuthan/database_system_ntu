@@ -1,6 +1,7 @@
 /*
     Intro: This SQL query is used to get chat with chat details.
-    Assumption: Frontend already displyed the transacation list and when user try to get the chat details of a specific transaction, this script will be used
+    Assumption: Users are inside the specific transaction page with details(shared and group), they should be able to see the transaction details along with the chats
+    If the user want to search for specific chat this script will used to featch the keyword search chat
     DataRepresentation: The backend script will provide the table with chat details, 
         chat Id
         messge 

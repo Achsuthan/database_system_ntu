@@ -1,4 +1,19 @@
 
+/*
+    Intro: This SQL query is used to get the top 5 intracted frinends for send and receive amount.
+    Assumption: 
+        <> Backend language will provide the user's ID
+        <> These details will be displayed in the dashbarod page
+    DataRepresentation: 
+        <> The data will have two set of values one is for most 5 intracted friends for send and other one is received
+        <> The backend script will provide the table with user and category details, 
+                Username
+                user email
+    
+    These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend
+*/
+
+
 
 
 

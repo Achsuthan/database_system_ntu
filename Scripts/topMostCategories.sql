@@ -1,6 +1,8 @@
 /*
-    Intro: This SQL query is used to get the top most categories and used to display in the dashboard page.
-    Assumption: Backend language will provide the user's ID and these script executed seperatly and get the top most categories
+    Intro: This SQL query is used to get the top 5 most categories and used to display in the dashboard page.
+    Assumption: 
+        <> Backend language will provide the user's ID and these script executed seperatly and get the top most categories
+        <> These details will be displayed in the dashbarod page
     DataRepresentation: The backend script will provide the table with user and category details, 
         Category count
         category name
