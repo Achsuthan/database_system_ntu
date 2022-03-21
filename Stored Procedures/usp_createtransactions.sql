@@ -18,7 +18,8 @@ CREATE DEFINER=`mysqladmin`@`%` PROCEDURE `usp_createtransactions`(
     IN trans_spendforId INT(11),
     IN trans_percentage DOUBLE,
     IN trans_senderIds VARCHAR(300),
-    IN trans_receiverId INT(11)
+    IN trans_receiverId INT(11),
+    IN spendinggroup_Id INT(11)
 )
 BEGIN
 	DECLARE `isrollback` BOOL DEFAULT 0;
@@ -40,11 +41,12 @@ BEGIN
 
 --   insert into group transaction table
 	INSERT INTO `group_transaction`(`sender_id`,`transaction_id`,`shared_transaction_id`,`group_id`)
-	SELECT `sender_id`, `transaction_id`, `shared_transaction_id`, 4 
+	SELECT `sender_id`, `transaction_id`, `shared_transaction_id`, spendinggroup_Id
     FROM  `shared_transaction`
     WHERE transaction_id = @lasttransactionId;
     
     IF `isrollback` THEN
+        ROLLBACK;
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'There is an error at creating transaction.', MYSQL_ERRNO = 2000;
     END IF;
     

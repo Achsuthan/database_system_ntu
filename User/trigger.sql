@@ -1,0 +1,9 @@
+DROP TRIGGER IF EXISTS `moneymanager`.`user_AFTER_INSERT`;
+
+DELIMITER $$
+USE `moneymanager`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `moneymanager`.`user_AFTER_INSERT` AFTER INSERT ON `user` FOR EACH ROW
+BEGIN
+		DELETE I FROM invite as I WHERE I.email = NEW.email;
+END$$
+DELIMITER ;
