@@ -20,3 +20,17 @@ SELECT transaction.transaction_id, transaction.name, transaction.amount
 FROM transaction
 where transaction.created_by = @userID OR transaction.transaction_id in (select shared_transaction.transaction_id from shared_transaction where shared_transaction.receiver_id = @userId )
 ORDER BY transaction.amount DESC LIMIT 5;
+
+
+/*
+    Same query added with the date range so the user can get the top most categories in the date range in the dashborad.
+*/
+
+SET @userID = '1';
+SET @startDate = '2022-03-12 00:00:00';
+SET @endDate = '2022-03-20 23:59:00';
+
+SELECT transaction.transaction_id, transaction.name, transaction.amount
+FROM transaction
+where (transaction.created_by = @userID OR transaction.transaction_id in (select shared_transaction.transaction_id from shared_transaction where shared_transaction.receiver_id = @userId )) and (transaction.date between @startDate and @endDate)
+ORDER BY transaction.amount DESC LIMIT 5;
