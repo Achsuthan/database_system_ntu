@@ -1,7 +1,7 @@
 /*
-    Intro: This SQL query is used to search the users who are not friends.
+    Intro: This SQL query is used to search the users who are not friends with other users.
     Assumption: 
-        <> Frontent is having a page to search the users who are not friends
+        <> Frontend having a page to search the users who are not friends
         <> Backend will pass the user's id and keyword to search
     DataRepresentation: The backend script will provide the table with user's details, 
         user Id
