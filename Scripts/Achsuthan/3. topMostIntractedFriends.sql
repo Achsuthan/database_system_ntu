@@ -37,4 +37,4 @@ from intracted_friends
 inner join user on (user.user_id = intracted_friends.sender_id)
 where intracted_friends.receiver_id= @userId
 group by intracted_friends.sender_id
-order by  senderCount desc;
+order by  senderCount desc limit 5;
