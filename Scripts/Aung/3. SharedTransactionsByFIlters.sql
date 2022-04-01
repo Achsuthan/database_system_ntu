@@ -24,7 +24,8 @@
 
 SET @userId = 2;
 SET @categoryIds = '2,3,4'; -- Food, Loan or Gift
-SET @transactionspendfortype = 2; -- 2 or 3 (friends or group)
+SET @transactionspendfor = 2; -- 2(friends)
+SET @transactionType = 3; -- transfer
 SET @trans_startdate = '2022-03-01 00:00:00';
 SET @trans_enddate = '2022-03-30 23:59:59';
 
@@ -42,6 +43,6 @@ where 	((shared_transaction.sender_id = @userId || shared_transaction.receiver_i
         (shared_transaction.sender_id <> shared_transaction.receiver_id)) &&
 		FIND_IN_SET (category.category_id ,@categoryIds) &&
         (transaction.createddate BETWEEN @trans_startdate AND @trans_enddate) && 
-		transaction.transaction_spent_for_id = @transactionspendfortype && -- spend for friend or group transaction
-        transaction_type.transaction_type_id = 3 -- transfer type 
+		transaction.transaction_spent_for_id = @transactionspendfor && -- spend for friend transaction
+        transaction_type.transaction_type_id = @transactionType -- transfer type 
 order by transaction.transaction_id,transaction.createddate desc;

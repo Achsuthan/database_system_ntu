@@ -30,6 +30,7 @@ SET @categoryIds = '2,3,4'; -- Food, Loan or Gift
 SET @transactionspendfortype = 3; -- group
 SET @trans_startdate = '2022-03-01 00:00:00';
 SET @trans_enddate = '2022-03-30 23:59:59';
+SET @transactionType = 3; -- transfer
 
 SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount as total_transaction_amount,
 shared_transaction.percentage,(shared_transaction.percentage/100) * transaction.amount as shared_amount,
@@ -47,5 +48,5 @@ where 	((shared_transaction.sender_id = @userId || shared_transaction.receiver_i
 		FIND_IN_SET (category.category_id ,@categoryIds) &&
         (transaction.createddate BETWEEN @trans_startdate AND @trans_enddate) && 
         transaction.transaction_spent_for_id = @transactionspendfortype && -- spend for friends or group transaction
-        transaction_type.transaction_type_id = 3 -- transfer type
+        transaction_type.transaction_type_id = @transactionType -- transfer type
 order by transaction.updateddate desc;

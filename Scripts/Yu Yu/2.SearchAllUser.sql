@@ -1,7 +1,7 @@
 /*
-    Intro: This SQL query is used for searching the registered user by name and email.
+    Intro: This SQL query is used for searching the user by using the name and email.
     Assumption: 
-        <> User already registered on the money manager system.
+        <> User already registered on the system.
         <> Frontend wanted to have a page to search the users in the system
     
     DataRepresentation: The backend script will provide the table with chat details, 

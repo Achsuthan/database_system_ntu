@@ -22,6 +22,10 @@
         if the transaction for is group and receiverId users get the plus amount and senderId(current user) will get the amount as minus
 */
 
+
+SET @transactionspendfor = 3; -- 2(friends)
+SET @transactionType = 3; -- transfer
+
 SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount as total_transaction_amount,
 shared_transaction.percentage,(shared_transaction.percentage/100) * transaction.amount as shared_amount,
 transaction.description as transaction_description, transaction.updateddate as transaction_created_date, transaction.is_bank_transaction as is_bank_transaction,
@@ -34,6 +38,6 @@ inner join group_transaction on shared_transaction.shared_transaction_id = group
 inner join category on (transaction.category_id = category.category_id)
 inner join transaction_type on (transaction.transaction_type_id = transaction_type.transaction_type_id)
 where ((shared_transaction.sender_id <> shared_transaction.receiver_id)) &&
-        transaction.transaction_spent_for_id IN (3) && -- friends and group transaction
-        transaction_type.transaction_type_id = 3 -- transfer type
+        transaction.transaction_spent_for_id = @transactionType && -- group transaction
+        transaction_type.transaction_type_id = @transactionspendfor -- transfer type
 order by transaction.updateddate desc;

@@ -19,20 +19,19 @@ SET @keyword = "%gmail%";
 select user_id, name, email
 from user
 WHERE (
-	user_id in (
-		select receiver_userId
-        from friend
-        where (sender_userId = @userId AND is_Friends = true)
-	)
-    OR
-    (
-    user_id in (
-		select sender_userId
-        from friend
-        where receiver_userId = @userId AND is_Friends = true
-        
-        )
-	)
+	    user_id in (
+		    select receiver_userId
+            from friend
+            where (sender_userId = @userId AND is_Friends = true)
+	    )
+        OR
+        (
+            user_id in (
+		        select sender_userId
+                from friend
+                where receiver_userId = @userId AND is_Friends = true
+                )
+	    )
     )
     AND
     (

@@ -22,6 +22,8 @@
         receiverId user will get the amount as plus and the senderId(current user) get the minus amount
 */
 
+SET @transactionspendfor = 2; -- 2(friends)
+SET @transactionType = 3 -- transfer
 
 SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount as total_transaction_amount,
 shared_transaction.percentage,(shared_transaction.percentage/100) * transaction.amount as shared_amount,
@@ -34,6 +36,6 @@ inner join shared_transaction on transaction.transaction_id = shared_transaction
 inner join category on (transaction.category_id = category.category_id)
 inner join transaction_type on (transaction.transaction_type_id = transaction_type.transaction_type_id)
 where ((shared_transaction.sender_id <> shared_transaction.receiver_id)) &&
-        transaction.transaction_spent_for_id IN (2,3) && -- friend and group transaction
-        transaction_type.transaction_type_id = 3 -- transfer type
+        transaction.transaction_spent_for_id = @transactionspendfor && -- friend transaction
+        transaction_type.transaction_type_id = @transactionType -- transfer type
 order by transaction.transaction_id,transaction.createddate desc;
