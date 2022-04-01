@@ -15,18 +15,18 @@
 
 
 
-SET @groupTransactionId = 43;
-SET @transactionSpentFor = 3;
-SET @transactionTypeId = 3;
+SET @groupTransactionId = 43; 
+SET @transactionSpentFor = 3; -- group transaction
+SET @transactionTypeId = 3; -- transfer type
 
-SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount,
+SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount as total_transaction_amount,
 transaction.description as transaction_description,
 transaction_type.type as transactiontype,
-transaction.amount as transaction_amount, 
 spending_group.name as spendinggroupname,
 getUserNameById(chat.sender_id) as sender_name,
 getUserEmailById(chat.sender_id) as sender_email,
-chat.message
+chat.message,
+chat.createddate as sent_time
 FROM transaction
 inner join (SELECT DISTINCT transaction_id, group_id FROM group_transaction) AS T on transaction.transaction_id = T.transaction_id
 inner join spending_group on T.group_id = spending_group.spending_group_id
