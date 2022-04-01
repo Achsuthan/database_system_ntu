@@ -1,5 +1,5 @@
 /*
-    Intro: This SQL query is used search the user by name and email.
+    Intro: This SQL query is used for searching the registered user by name and email.
     Assumption: 
         <> User already registered on the money manager system.
         <> Frontend wanted to have a page to search the users in the system
