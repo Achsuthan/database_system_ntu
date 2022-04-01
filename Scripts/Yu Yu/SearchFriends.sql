@@ -1,9 +1,9 @@
 /*
-    Intro: This SQL query is used to search the friend of a user.
+    Intro: This SQL query is used for searching the user who are friends with other registered users.
     Assumption: 
-        <> Frontent is having a page to search the friends
-        <> Backend will pass the user's id and keyword to search
-    DataRepresentation: The backend script will provide the table with user's details, 
+        <> Frontend having a page to search the friends from our system.
+        <> Backend will pass the user's id and keyword to search.
+    DataRepresentation: The backend language will provide the table with user's details, 
         user Id
         user's name
         email
