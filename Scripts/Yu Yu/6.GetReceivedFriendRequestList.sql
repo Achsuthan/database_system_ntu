@@ -13,4 +13,4 @@
 select friend.friend_id,user.user_id, user.name, user.email
 from user
 inner join friend on (friend.receiver_userId = user.user_id)
-where is_Friends = true;
+where is_Friends = false;
