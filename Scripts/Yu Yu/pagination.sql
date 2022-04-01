@@ -5,7 +5,7 @@
         1. For this query used only for the user search pagination, but same implementation can be added to all other Queries if requires
         2. Backend langugue should pass the how many row they wanted for specific row count (value for limit) and the current page number(offset)
         3. Backend need to pass the user who are searching the other users
-    DataRepresentation: The backend script will provide the table with user details, 
+    DataRepresentation: The backend language will provide the table with user details, 
         User Id
         User name
         User email
