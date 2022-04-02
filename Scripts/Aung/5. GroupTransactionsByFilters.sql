@@ -6,7 +6,9 @@
     DataRepresentation: The backend script will provide the table with transaction details, 
         transaction Id
         transaction name 
-        transaction amount
+        total transaction amount
+        percentage
+        shared amount
         transaction created date
         is bank transaciton
         category Id 
