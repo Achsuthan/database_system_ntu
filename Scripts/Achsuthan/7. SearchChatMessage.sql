@@ -15,7 +15,6 @@
 */
 
 
-SET @transactionId = 1;
 SET @keyword = "receive";
 
 select chat.chat_id, chat.transaction_id,chat.createddate, user.user_id as sender_id,user.name as sender_name, user.email as sender_email, chat.message

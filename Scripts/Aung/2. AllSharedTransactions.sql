@@ -4,7 +4,9 @@
     DataRepresentation: The backend script will provide the table with transaction details, 
         transaction Id
         transaction name 
-        transaction amount
+        total transaction amount
+        percentage
+        shared amount
         transaction created date
         is bank transaciton
         category Id 
@@ -16,14 +18,13 @@
         sender email
 		receiver name
         receiver email
-        percentage
     <> These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend, 
     <> For the amount plus/minus values, the backend logic changed the amount value to plus/minus based on the transaction for and receiverId;
         receiverId user will get the amount as plus and the senderId(current user) get the minus amount
 */
 
 SET @transactionspendfor = 2; -- 2(friends)
-SET @transactionType = 3 -- transfer
+SET @transactionType = 3; -- transfer
 
 SELECT transaction.transaction_id as transaction_id, transaction.name as transaction_name, transaction.amount as total_transaction_amount,
 shared_transaction.percentage,(shared_transaction.percentage/100) * transaction.amount as shared_amount,
