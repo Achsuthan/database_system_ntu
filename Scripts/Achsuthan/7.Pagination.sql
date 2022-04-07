@@ -13,12 +13,10 @@
     These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend
 */
 
-
 SET @keyword = "%gmail%";
 SET @userId = "1";
 
 select user_id, name, email 
 from user 
 where (name LIKE @keyword OR email LIKE @keyword) AND user_id != @userId
-limit 3 OFFSET 3
-
+limit 3 OFFSET 3 -- Limit is number of rows for each page, the offset is the page number * each page rows

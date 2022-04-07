@@ -16,8 +16,9 @@
 
 
 SET @keyword = "receive";
+SET @TransactionId = 43;
 
-select chat.chat_id, chat.transaction_id,chat.createddate, user.user_id as sender_id,user.name as sender_name, user.email as sender_email, chat.message
+select chat.chat_id, chat.createddate as sent_time, user.user_id as sender_id,user.name as sender_name, user.email as sender_email, chat.message
  from chat 
  inner join user on (user.user_id = chat.sender_id) 
- where message like CONCAT('%', @keyword, '%');
+ where message like CONCAT('%', @keyword, '%') and chat.transaction_id = @TransactionId;
