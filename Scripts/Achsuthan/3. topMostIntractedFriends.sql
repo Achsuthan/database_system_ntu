@@ -15,11 +15,6 @@
     These table details will be represented as JSON/XML or HTML table format using ORM and send it back to frontend
 */
 
-CREATE DEFINER=`mysqladmin`@`%` TRIGGER `moneymanager`.`shared_transaction_AFTER_INSERT` AFTER INSERT ON `shared_transaction` FOR EACH ROW
-BEGIN
-    INSERT INTO intracted_friends (sender_id, receiver_id) values (new.sender_id, new.receiver_id);
-END
-
 
 -- Most 5 friends who received money from a user
 
